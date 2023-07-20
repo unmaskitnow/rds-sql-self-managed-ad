@@ -41,7 +41,10 @@ Join MGMT to self Managed Active Directory domain
 Add-Computer -DomainName <domainName> -Restart
   ```
 
+[Download SQL Server Management Studio (SSMS)](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16)
+
 Install SQL Server Management Studio (SSMS)
+
   ```powershell
 $media_path = "<PathToInstaller>\SSMS-Setup-ENU.exe"
 $install_path = "$env:SystemDrive\SSMSto"
@@ -52,7 +55,18 @@ Start-Process -FilePath $media_path -ArgumentList $params -Wait
 
 ### RDS
 
-Add "VIEW SERVER STATE" permissions to domain user
+Create Windows Authentication SQL Server login
+  ```powershell
+USE [master]
+GO
+CREATE LOGIN [<domainName>\<domainUserName>] FROM WINDOWS WITH DEFAULT_DATABASE = [master], DEFAULT_LANGUAGE = [us_english];
+GO
+  ```
+
+
+
+
+Add `VIEW SERVER STATE` permissions to domain user
   ```powershell
 USE [master]
 GO
