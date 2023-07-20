@@ -1,7 +1,11 @@
 # rds-sql-self-managed-ad
 Join Amazon RDS for SQL Server to self Managed Active Directory on Amazon EC2 Windows Server
 
-## Link to YouTube video : [Join Amazon RDS for SQL Server to self Managed Active Directory](TBD)
+# Prerequisites
+Watch this first: [Install Active Directory on Amazon EC2 Windows Server](https://youtu.be/yGWVEyG2sG4)
+
+## Link to this YouTube video : [Join Amazon RDS for SQL Server to self Managed Active Directory](https://youtu.be/s0BucRZbY1g)
+
 Agenda
 * Windows Authentication Options for Amazon RDS for SQL Server
 * Windows Authentication Options for Amazon RDS Custom for SQL Server
@@ -10,7 +14,7 @@ Agenda
 * Create Organizational Unit  (OU) in Active Directory
 * Create a domain user with delegated permissions to perform domain join of RDS DB Instance
 * Create a domain user for SQL login
-* Create a encryoted secret in AWS Secrets Manager with domain join credentials
+* Create a encrypted secret in AWS Secrets Manager with domain join credentials
 * Join Amazon RDS to self Managed Active Directory
 * Test SQL login for domain user
   
@@ -24,7 +28,7 @@ Agenda
 Rename Computer
   ```powershell
 Rename-Computer -NewName "<newName>" -Restart
-
+  ```
 
 Get Interface Index for Ethernet adapter (Elastic Network Adapter)
   ```powershell
